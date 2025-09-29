@@ -1,0 +1,22 @@
+.gn-table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  border-radius: 10px;
+  overflow: hidden;
+
+  border: 1px solid rgba(0, 0, 0, 0.275);
+
+  th,
+  td {
+    border: 1px solid black;
+    padding: 0.75rem;
+  }
+
+  &.borderless {
+    table,
+    th,
+    td {
+      border: 0;
+    }
+  }
+}

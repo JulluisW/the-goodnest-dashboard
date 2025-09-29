@@ -66,3 +66,17 @@
 .animate-scaleIn {
   animation: scaleIn 0.3s ease-out forwards;
 }
+
+@keyframes goodnest-bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-goodnest-bounce {
+  animation: goodnest-bounce 1s infinite;
+}

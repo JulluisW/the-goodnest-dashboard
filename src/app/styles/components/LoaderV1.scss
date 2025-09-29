@@ -1,0 +1,117 @@
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@600&display=swap");
+
+.goodnest-loader {
+  --loader-size: 60px; // 🔥 adjust this to scale everything
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+
+  .fruit {
+    width: var(--loader-size);
+    height: var(--loader-size);
+    background: radial-gradient(circle at 30% 30%, #f7a5a5, #f32738);
+    border-radius: 45%;
+    animation: bounce 1.2s infinite ease-in-out;
+  }
+
+  .stem {
+    position: absolute;
+    top: calc(var(--loader-size) * -0.1);
+    left: 50%;
+    transform: translateX(-50%) rotate(-5deg);
+    width: calc(var(--loader-size) * 0.1);
+    height: calc(var(--loader-size) * 0.25);
+    background: linear-gradient(to bottom, #6b4226, #4a2c1a);
+    border-radius: 999px;
+
+    /* 🔥 remove separate bounce, it follows fruit now */
+  }
+
+  .leaf {
+    position: absolute;
+    top: calc(var(--loader-size) * -0.29);
+    left: 50%;
+    transform: translateX(-50%) rotate(-25deg);
+    width: calc(var(--loader-size) * 0.5);
+    height: calc(var(--loader-size) * 0.25);
+
+    background: linear-gradient(135deg, #3eb489, #2ecc71 60%);
+    border-radius: 50% 50% 50% 50%;
+
+    // make a more natural leaf shape
+    clip-path: ellipse(60% 45% at 50% 50%);
+
+    // subtle highlight for a vein
+    box-shadow: inset -2px -2px 4px rgba(255, 255, 255, 0.4),
+      inset 2px 2px 4px rgba(0, 0, 0, 0.2);
+
+    animation: leafBounce 1.2s infinite ease-in-out;
+    z-index: 1;
+  }
+
+  .text {
+    font-family: "Quicksand", sans-serif;
+    font-weight: 600;
+    font-size: calc(var(--loader-size) * 0.35);
+    color: #333;
+    letter-spacing: 1px;
+    animation: fade 1.2s infinite ease-in-out;
+  }
+
+  .shadow {
+    content: "";
+    position: absolute;
+    top: calc(var(--loader-size) * 0.9);
+    left: 50%;
+    width: 100px;
+    height: 12px;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 50%;
+    transform: translateX(-50%);
+    filter: blur(2px);
+    animation: shadow-bounce 1.2s infinite ease-in-out;
+  }
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-25%);
+  }
+}
+
+@keyframes leafBounce {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-45deg);
+  }
+  50% {
+    transform: translateY(-30%) rotate(-0deg);
+  }
+}
+
+@keyframes fade {
+  0%,
+  100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes shadow-bounce {
+  0%,
+  100% {
+    width: calc(var(--loader-size) * 0.5);
+  }
+  50% {
+    opacity: 0.5;
+    width: calc(var(--loader-size) * 1.5);
+  }
+}
